@@ -25,7 +25,7 @@ After weekend:
 
 ### LOG
 
-Setup virtual env
+#### Setup virtual env
 
 `python3 -m venv env`
 
@@ -36,6 +36,20 @@ Setup virtual env
 `pip --version`
 
 `deactivate`
+
+
+##### Install Django
+
+`pip install django`
+
+`python -m django --version`
+
+
+##### Create App
+
+`django-admin startproject api`
+
+
 
 ### QUESTIONS
 
