@@ -61,6 +61,24 @@ After weekend:
 `python manage.py migrate`
 
 
+##### Make migrations for pluggable app
+
+`python manage.py makemigrations polls`
+
+
+##### Create schema for version and migration again
+
+`python manage.py sqlmigrate polls 0001`
+
+`python manage.py migrate`
+
+
+##### Run shell
+
+`python manage.py shell`
+
+
+
 
 
 ### QUESTIONS
