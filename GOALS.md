@@ -45,9 +45,21 @@ After weekend:
 `python -m django --version`
 
 
-##### Create App
+##### Create project
 
 `django-admin startproject api`
+
+
+##### Create sub-app / module
+
+`python manage.py startapp polls`
+
+> Let op geen django-admin maar python!
+
+##### Migrate database
+
+`python manage.py migrate`
+
 
 
 
