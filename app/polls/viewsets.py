@@ -1,10 +1,10 @@
 from .models import Question, Choice
 from rest_framework import serializers, viewsets
 
-class QuestionSerializer(serializers.HyperlinkedModelSerializer):
+class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        fields = ('url', 'text')
+        fields = ('id', 'text')
 
 
 class QuestionViewSet(viewsets.ModelViewSet):
