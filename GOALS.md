@@ -84,6 +84,9 @@ After weekend:
 > Now i'm moving from building views into building JSON api
 
 
+##### Testing
+
+Added more features and Aloa packages
 
 ### QUESTIONS
 
@@ -97,7 +100,7 @@ After weekend:
 
  > " When used in combination with the virtualenv package, you can reliably create project Python environments with a project's required dependencies."
 
-2. Why does Django prefix fields with model name?
+2. Why does Django prefix fields with model_name?
 
 
 
