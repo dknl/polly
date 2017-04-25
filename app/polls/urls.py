@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from .viewsets import QuestionViewSet
+from .views import QuestionViewSet
 from rest_framework import routers
 
 
