@@ -65,7 +65,7 @@ After weekend:
 
 ### QUESTIONS
 
-How do we handle packages and versions, Ruby has gems a.k.a. RubyGems?
+1. How do we handle packages and versions, Ruby has gems a.k.a. RubyGems?
 
  `pip install -r requirements.txt`
 
@@ -75,6 +75,7 @@ How do we handle packages and versions, Ruby has gems a.k.a. RubyGems?
 
  > " When used in combination with the virtualenv package, you can reliably create project Python environments with a project's required dependencies."
 
+2. Why does Django prefix fields with model name?
 
 
 
