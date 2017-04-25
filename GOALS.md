@@ -79,6 +79,10 @@ After weekend:
 
 
 
+##### Added admin and DjangoRestFramework
+
+> Now i'm moving from building views into building JSON api
+
 
 
 ### QUESTIONS

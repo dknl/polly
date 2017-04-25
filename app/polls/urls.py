@@ -1,6 +1,11 @@
-from django.conf.urls import url
-from . import views
+from django.conf.urls import url, include
+from .viewsets import QuestionViewSet
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'questions', QuestionViewSet)
 
 urlpatterns = [
-  url('^$', views.index, name='index')
+  url(r'^', include(router.urls)),
 ]
