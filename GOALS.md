@@ -33,6 +33,22 @@ Setup virtual env
 
 `python --version`
 
+`pip --version`
+
+`deactivate`
+
+### QUESTIONS
+
+How do we handle packages and versions, Ruby has gems a.k.a. RubyGems?
+
+ `pip install -r requirements.txt`
+
+ `pip freeze > requirements.txt`
+
+ Found these commands to handle versions and setup virtualenv.
+
+ > " When used in combination with the virtualenv package, you can reliably create project Python environments with a project's required dependencies."
+
 
 
 
