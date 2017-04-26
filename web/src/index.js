@@ -1,24 +1,39 @@
-// Import React, ReactDOM and the DummyComponent.
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Fetch from 'react-fetch'
 
+// => HOC
+const QuestionList = (props) => {
 
-class TestComponent extends React.Component{
-  render(){
-    console.log(this.props)
-    return <div/>
-  }
+  // iterate
+  const keys = Object.keys(props);
+  const listItems = keys.map((item) =>
+   <li key={item}>{props[item].text}</li>
+  );
+
+  return (
+    <div class="q-list">
+      <ul>{listItems}</ul>
+    </div>
+  );
 }
 
-class App extends React.Component {
+// => BaseApp
+class BaseApp extends React.Component {
   render() {
     return(
-      <Fetch url="http://localhost:8000/polls/questions/?format=json">
-        <TestComponent/>
-      </Fetch>
+      <section className="questions">
+        <h2>Vragen</h2>
+        <Fetch url="http://localhost:8000/polls/questions/?format=json">
+          <QuestionList />
+        </Fetch>
+      </section>
     )
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+// => render
+ReactDOM.render(<BaseApp />,
+  document.getElementById('app')
+);

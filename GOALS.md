@@ -1,4 +1,4 @@
-## JouwOmgeving
+## Demo App
 
 ##### DoD
 " create polling system based on [tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/) and connect a React based front-end to it"
