@@ -42,10 +42,10 @@ class Question extends React.Component {
 
   render() {
 
-    let { choices, text } = this.state;
+    const { choices, text } = this.state;
 
     return (
-      <section className="card">
+      <section className="card question">
         <h2>{ text }</h2>
         <ul>
           {this.renderChoices()}

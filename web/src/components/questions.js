@@ -37,9 +37,9 @@ class Questions extends React.Component {
   }
 
   render() {
-    let { items } = this.state;
+    const { items } = this.state;
     return (
-      <section className="card">
+      <section className="card questions">
         {this.renderQuestionsMenu()}
       </section>
     );

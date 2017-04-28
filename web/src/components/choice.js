@@ -1,5 +1,4 @@
 import React from 'react'
-import List from './list'
 
 // Questions
 class Choice extends React.Component {
@@ -20,13 +19,16 @@ class Choice extends React.Component {
   }
 
   render() {
-
-    let { text }  = this.props.choice;
-
+    const { text, votes }  = this.props.choice;
     return (
       <li
         onClick={this.voteOnChoice.bind(this)}>
         {text}
+
+        <div className="vote">
+          {votes}
+        </div>
+
       </li>
     );
   }

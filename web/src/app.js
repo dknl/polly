@@ -15,10 +15,10 @@ class App extends React.Component {
         <div className="app">
           <ul className="nav">
             <li>
-              <Link to="/questions">Overzicht</Link>
+              <div className="logo"></div>
             </li>
             <li>
-              <Link to="/question/3">Test Link</Link>
+              <Link to="/questions">Overzicht van alle vragen</Link>
             </li>
           </ul>
           <div className="container">
