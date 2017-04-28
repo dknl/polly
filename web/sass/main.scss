@@ -1,11 +1,69 @@
-@import('css/reset');
-@import('css/site');
+@import 'css/reset';
+@import 'css/site';
 
 // vars
-$soft-bg-color: #F4F5F0;
 
+$primary-color:   #EC2675;
+$secundary-color: #510224;
+$soft-bg-color:   #F4F5F0;
+
+$soft-highlight-color: lighten($soft-bg-color, 25%);
+$soft-highlight-primary-color: rgba(lighten($primary-color, 2%), 0.2);
+
+$default-spacer: 12px;
 
 //
 body {
   background-color: $soft-bg-color;
+}
+
+.nav {
+  list-style: none;
+
+  li {
+    display: inline;
+
+    a {
+      padding: $default-spacer;
+    }
+  }
+}
+
+// Card
+.card {
+  background: $soft-highlight-color;
+  border: 1px solid #EEE;
+  padding: $default-spacer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h2 {
+    display: inline-grid;
+  }
+}
+
+
+// List inside cards
+.card {
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    li {
+      cursor: pointer;
+      margin:  $default-spacer;
+      padding: $default-spacer;
+      border: 1px solid $secundary-color;
+      height: 150px;
+      width:  150px;
+
+      &:hover {
+        background: $soft-highlight-primary-color;
+      }
+
+    }
+  }
 }
