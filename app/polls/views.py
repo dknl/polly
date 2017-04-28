@@ -18,6 +18,7 @@ class QuestionSerializer(serializers.ModelSerializer):
         model = Question
         fields = ('id', 'text','pub_date','choices')
 
+
 # viewsets
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
@@ -25,7 +26,6 @@ class QuestionViewSet(viewsets.ModelViewSet):
 
 
 class ChoiceViewSet(viewsets.ModelViewSet):
-
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
     renderer_classes = (JSONRenderer, )
@@ -35,9 +35,6 @@ class ChoiceViewSet(viewsets.ModelViewSet):
 
         choice = Choice.objects.get(pk=pk)
         choice.votes += 1
-        choice.save()
 
-        import pdb; pdb.set_trace();
-
-        res = {'choice': choice}
+        res = {'choice': choice.save()}
         return Response(res)
