@@ -1,14 +1,26 @@
 @import 'css/reset';
-@import 'css/site';
+
+// mixins
+@mixin box_shadow ($level) {
+    @if $level == 1 {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    } @else if $level == 2 {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    } @else if $level == 3 {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    } @else if $level == 4 {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    } @else if $level == 5 {
+        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    }
+}
 
 // vars
-
 $primary-color:   #EC2675;
 $secundary-color: #510224;
 $soft-bg-color:   #F4F5F0;
-
 $soft-highlight-color: lighten($soft-bg-color, 25%);
-$soft-highlight-primary-color: rgba(lighten($primary-color, 2%), 0.2);
+$soft-highlight-primary-color: rgba(lighten($primary-color, 20%), 0.2);
 
 $default-spacer: 12px;
 
@@ -17,15 +29,39 @@ body {
   background-color: $soft-bg-color;
 }
 
+a {
+  font-weight: 600;
+  padding: $default-spacer;
+  color: $primary-color;
+  text-decoration: none;
+  &:hover {
+    color: $secundary-color;
+  }
+}
+
 .nav {
+  margin: 0px;
+  padding: $default-spacer;
+  background: $secundary-color;
+
+  display: flex;
+  align-items: left;
+  justify-content: left;
   list-style: none;
 
-  li {
-    display: inline;
-
-    a {
-      padding: $default-spacer;
+  a {
+    color: #FFF;
+    &:hover {
+      color: rgba(lighten(#FFF, 2%), 0.2);
     }
+  }
+
+  .logo {
+    background-image: url('https://www.jouwomgeving.nl/static/images/logo.svg?519337d8511a');
+    text-indent: -9999px;
+    width: 124px;
+    height: 25px;
+    margin-right: 25px;
   }
 }
 
@@ -38,21 +74,34 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-  h2 {
-    display: inline-grid;
-  }
 }
 
+// question overview
+.questions {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+}
 
-// List inside cards
-.card {
+// list inside cards
+.question {
+
+  h2 {
+    color: $primary-color;
+    font-weight: 700;
+  }
+
   ul {
     display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
+
     li {
+      @include box_shadow(1);
+      background-color: rgba(255,255,255,0.2);
+
+
       cursor: pointer;
       margin:  $default-spacer;
       padding: $default-spacer;
@@ -60,10 +109,46 @@ body {
       height: 150px;
       width:  150px;
 
+
+      justify-content: flex-start;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+
       &:hover {
         background: $soft-highlight-primary-color;
       }
 
     }
+  }
+}
+
+.vote {
+  font-size: 30px;
+  color: $secundary-color;
+  margin-top: auto;
+}
+
+@media(max-width: 480px) {
+  .question {
+
+    h2 {
+      color: $primary-color;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    ul {
+      li {
+        font-size: 12px;
+        height: 75px;
+        width:  75px;
+      }
+    }
+  }
+
+  .vote {
+    font-size: 20px;
   }
 }
