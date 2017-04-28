@@ -10,28 +10,28 @@ import opts from '../settings'
 import votable from './hoc/votable'
 
 
-const QuestionRender = (props) => {
 
+// => Question render
+const Question = (props) => {
+
+  const VotableList = votable(List);
   console.log('QuestionRender what?', props)
-
+  
   return(
-    <section className="question">
+    <section className="card">
       <h2>{props.text}</h2>
-      <List { ...props.choices } />
+      <VotableList { ...props.choices } />
     </section>
   )
 }
 
-// Single Question
-const Question = (props) => {
-
-  console.log(props);
-
+// => Single Question component
+const QuestionWrapped = (props) => {
   return (
     <Fetch url={opts.url.test.single_question}>
-      <QuestionRender />
+      <Question />
     </Fetch>
   );
 }
 
-export default Question;
+export default QuestionWrapped;

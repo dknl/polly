@@ -10,26 +10,22 @@ import Question from './components/question'
 class AppWithRouter extends React.Component {
   render() {
     return (
+      //
       <Router>
-
-        <div className="nav navbar">
-          <ul>
+        <div className="app">
+          <ul className="nav">
             <li>
-              <Link to="/">Polls</Link>
+              <Link to="/questions">Overzicht</Link>
             </li>
             <li>
               <Link to="/test">Test</Link>
             </li>
           </ul>
-
-          <hr />
-
-          <Route path='/' component={Questions} />
-          <Route path='/test' component={Question} />
-
+          <div className="container">
+            <Route path='/questions' component={Questions} />
+            <Route path='/test' component={Question} />
+          </div>
         </div>
-
-
       </Router>
     )
   }
