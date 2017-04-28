@@ -9,12 +9,16 @@
     "bootstrap": "^4.0.0-alpha.6",
     "jquery": "^3.1.0",
     "lodash": "^4.15.0",
+    "querystring": "^0.2.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-fetch": "^0.0.9",
+    "react-router-dom": "^4.1.1",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-globals": "^1.1.0",
     "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-ternary": "^2.0.1",
+    "simple-react-router": "^0.0.13",
     "tether": "^1.4.0"
   },
   "devDependencies": {
