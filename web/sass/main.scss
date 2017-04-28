@@ -1,8 +1,11 @@
+@import('css/reset');
+@import('css/site');
 
 // vars
 $soft-bg-color: #F4F5F0;
 
-// 
+
+//
 body {
   background-color: $soft-bg-color;
 }
