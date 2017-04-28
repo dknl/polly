@@ -1,37 +1,58 @@
 // User interface
 import React from 'react'
 import Fetch from 'react-fetch'
-import List from './list'
+import Choice from './choice'
 
-// settings
-import opts from '../settings'
+// Questions
+class Question extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+      choices: []
+    }
+  }
 
-// hoc's
-import votable from './hoc/votable'
+  componentDidMount() {
+    const { id }  =  this.props.match.params;
+    const uri = `http://localhost:8000/polls/questions/${id}/?format=json`;
+
+    console.log('url=',uri);
+
+    fetch(uri).then((response) => {
+      return response.json();
+    }).then((data) => {
+      this.setState({
+        text: data.text,
+        choices: data.choices
+      });
+    });
+  }
+
+  renderChoices() {
+
+    const { choices } = this.state;
+    const keys = Object.keys(choices);
+    return keys.map((index) => {
+      console.log(index)
+      return <Choice key={index} choice={choices[index]} />
+    });
+  }
 
 
+  render() {
 
-// => Question render
-const Question = (props) => {
+    let { choices, text } = this.state;
 
-  const VotableList = votable(List);
-  console.log('QuestionRender what?', props)
-  
-  return(
-    <section className="card">
-      <h2>{props.text}</h2>
-      <VotableList { ...props.choices } />
-    </section>
-  )
+    return (
+      <section className="card">
+        <h2>{ text }</h2>
+        <ul>
+          {this.renderChoices()}
+        </ul>
+      </section>
+    );
+  }
 }
 
-// => Single Question component
-const QuestionWrapped = (props) => {
-  return (
-    <Fetch url={opts.url.test.single_question}>
-      <Question />
-    </Fetch>
-  );
-}
-
-export default QuestionWrapped;
+export default Question;

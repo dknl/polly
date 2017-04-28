@@ -7,7 +7,7 @@ import Questions from './components/questions'
 import Question from './components/question'
 
 // => awpplication with a router
-class AppWithRouter extends React.Component {
+class App extends React.Component {
   render() {
     return (
       //
@@ -18,12 +18,12 @@ class AppWithRouter extends React.Component {
               <Link to="/questions">Overzicht</Link>
             </li>
             <li>
-              <Link to="/test">Test</Link>
+              <Link to="/question/3">Test Link</Link>
             </li>
           </ul>
           <div className="container">
             <Route path='/questions' component={Questions} />
-            <Route path='/test' component={Question} />
+            <Route path='/question/:id' component={Question} />
           </div>
         </div>
       </Router>
@@ -31,4 +31,4 @@ class AppWithRouter extends React.Component {
   }
 }
 
-export default AppWithRouter;
+export default App;

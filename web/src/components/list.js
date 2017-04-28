@@ -2,15 +2,16 @@ import React from 'react'
 
 const List = (props) => {
 
-  // iterate
-  const keys = Object.keys(props);
+  // iterate over keys
+  const keys = Object.keys(props.items || []);
   const listItems = keys.map((index) =>
    <li
-     onClick={props.handleClick.bind(index)}
-     key={index}>{props[index].text}
+     onClick={voteOnItem.bind(index)}
+     key={index}>{props.items[index].text}
    </li>
   );
 
+  // return list
   return (
     <ul>{listItems}</ul>
   );

@@ -1,21 +1,50 @@
 // ui
 import React from 'react'
-import Fetch from 'react-fetch'
-import List from './list'
+import { Link } from 'react-router-dom'
+import opts from '../settings';
 
-// settings
-import opts from '../settings'
 
 // Questions
-const Questions = () => {
-  return (
-    <section className="card">
-      <h2>Polly</h2>
-      <Fetch url={opts.url.questions}>
-        <List />
-      </Fetch>
-    </section>
-  );
+class Questions extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: []
+    }
+  }
+
+  componentDidMount() {
+    fetch(opts.url.questions).then((response) => {
+      return response.json();
+    }).then((items) => {
+      this.setState({ items });
+    });
+  }
+
+  renderQuestionsMenu() {
+
+    const { items } = this.state;
+
+    const keys = Object.keys(items);
+    return keys.map((index) => {
+      const uri = `/question/${items[index].id}`;
+      return (
+        <Link key={index} to={uri} replace>
+          {items[index].text}
+        </Link>
+      );
+    });
+  }
+
+  render() {
+    let { items } = this.state;
+    return (
+      <section className="card">
+        {this.renderQuestionsMenu()}
+      </section>
+    );
+  }
 }
+
 
 export default Questions;
