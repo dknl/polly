@@ -6,7 +6,7 @@ from rest_framework import serializers, viewsets
 class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice
-        fields = ('id', 'text')
+        fields = ('id', 'text', 'votes')
 
 class QuestionSerializer(serializers.ModelSerializer):
     choices = ChoiceSerializer(many=True, read_only=True)
