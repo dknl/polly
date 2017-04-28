@@ -5,7 +5,7 @@ CSS_OUT=./web/core.css
 CSS_FLAGS= -t compact
 
 watch:
-	watchman-make -p 'sass/**/*.scss' -t sassy -p 'src/*.js' 'Makefile*' -t rollup
+	watchman-make -p 'sass/**/*.scss' -t sassy -p 'src/**/*.js' 'Makefile*' -t rollup
 
 publish:
 	rollup -c config.build.js
