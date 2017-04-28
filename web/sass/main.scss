@@ -96,6 +96,7 @@ a {
     align-items: center;
     justify-content: center;
     list-style: none;
+    flex-flow: row wrap;
 
     li {
       @include box_shadow(1);
@@ -130,7 +131,7 @@ a {
   margin-top: auto;
 }
 
-@media(max-width: 480px) {
+@media(max-width: 500px) {
   .question {
 
     h2 {
@@ -142,6 +143,8 @@ a {
     ul {
       li {
         font-size: 12px;
+        margin:  $default-spacer / 2;
+        padding: $default-spacer / 2;
         height: 75px;
         width:  75px;
       }
