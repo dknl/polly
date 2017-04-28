@@ -40,6 +40,7 @@ a {
 }
 
 .nav {
+  @include box_shadow(3);
   margin: 0px;
   padding: $default-spacer;
   background: $secundary-color;
@@ -102,6 +103,8 @@ a {
       @include box_shadow(1);
       background-color: rgba(255,255,255,0.2);
 
+      font-weight: 700;
+      color: $secundary-color;
 
       cursor: pointer;
       margin:  $default-spacer;
@@ -127,8 +130,10 @@ a {
 
 .vote {
   font-size: 30px;
+  font-weight: 300;
   color: $secundary-color;
   margin-top: auto;
+  justify-content: flex-end;
 }
 
 @media(max-width: 500px) {
