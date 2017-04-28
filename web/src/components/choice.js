@@ -3,10 +3,20 @@ import React from 'react'
 // Questions
 class Choice extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      votes: this.props.choice.votes,
+    }
+  }
+
+
   voteOnChoice() {
 
     // grab id of choice
     const { id }  =  this.props.choice;
+    const { votes } = this.state;
 
     // fetch params
     const options = { method: 'POST' };
@@ -14,12 +24,17 @@ class Choice extends React.Component {
 
     // excute
     fetch(uri, options).then((res)=> {
-      console.log(res)
+      return res.json()
+    }).then((data) => {
+      this.setState({
+        votes: votes + 1
+      });
     });
   }
 
   render() {
-    const { text, votes }  = this.props.choice;
+    const { text }  = this.props.choice;
+    const { votes } = this.state;
     return (
       <li
         onClick={this.voteOnChoice.bind(this)}>
