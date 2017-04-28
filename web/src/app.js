@@ -18,7 +18,7 @@ class App extends React.Component {
               <div className="logo"></div>
             </li>
             <li>
-              <Link to="/questions">Overzicht van alle vragen</Link>
+              <Link to="/questions">Vragen</Link>
             </li>
           </ul>
           <div className="container">
