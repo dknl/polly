@@ -14,7 +14,7 @@ class Questions extends React.Component {
   }
 
   componentDidMount() {
-    fetch(opts.url.questions).then((response) => {
+    fetch(opts.uri.questions).then((response) => {
       return response.json();
     }).then((items) => {
       this.setState({ items });

@@ -1,7 +1,10 @@
 // User interface
 import React from 'react'
-import Fetch from 'react-fetch'
 import Choice from './choice'
+
+// opts
+import opts from '../settings';
+
 
 // Questions
 class Question extends React.Component {
@@ -15,7 +18,7 @@ class Question extends React.Component {
 
   componentDidMount() {
     const { id }  =  this.props.match.params;
-    const uri = `http://localhost:8000/polls/questions/${id}/?format=json`;
+    const uri = opts.uri.question(id);
 
     console.log('url=',uri);
 

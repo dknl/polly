@@ -1,5 +1,8 @@
 import React from 'react'
 
+// => opts
+import opts from '../settings';
+
 // Questions
 class Choice extends React.Component {
 
@@ -10,8 +13,7 @@ class Choice extends React.Component {
       votes: this.props.choice.votes,
     }
   }
-
-
+  
   voteOnChoice() {
 
     // grab id of choice
@@ -20,7 +22,7 @@ class Choice extends React.Component {
 
     // fetch params
     const options = { method: 'POST' };
-    const uri     = `http://localhost:8000/polls/choices/${id}/vote/?format=json`;
+    const uri = opts.uri.choice_vote(id);
 
     // excute
     fetch(uri, options).then((res)=> {
